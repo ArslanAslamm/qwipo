@@ -1,0 +1,160 @@
+
+
+ 
+
+
+
+
+<div class="container-fluid breadcrumb-fluid careers-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 py-5 d-flex align-items-center">
+                <div class="raleway-bold color-000 page-name">
+                    <?php echo $contactBanner[0]['title'];?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="text-right">
+                    <img src="<?php echo $this->basePath() . "/data/images/" . $contactBanner[0]['image_path'] ?>" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-7 mx-auto">
+                <div class="text-center raleway-bold color-000 section-name mb-4">
+                    <h1>Contact Us</h1>
+                </div>
+                <div class="mb-4">
+                    <label class="helvetica-regular color-333">
+                        Your Name
+                    </label>
+                    <div>
+                        <input type="text" class="form-control contactus-formcontrol" placeholder="Enter your name" id="contactUsername">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="helvetica-regular color-333">
+                        Your Email
+                    </label>
+                    <div>
+                        <input type="email" class="form-control contactus-formcontrol" placeholder="Enter your email" id="contactUseremail">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="helvetica-regular color-333">
+                        Mobile Number
+                    </label>
+                    <div>
+                        <input type="number" class="form-control contactus-formcontrol" placeholder="Enter your mobile number" id="contactUsernumber">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="helvetica-regular color-333">
+                        Subject
+                    </label>
+                    <div>
+                        <input type="text" class="form-control contactus-formcontrol" placeholder="Enter subject" id="contactUsersubject">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="helvetica-regular color-333">
+                        Your Message
+                    </label>
+                    <div>
+                        <textarea class="form-control contactus-formcontrol h-auto py-2" rows="4" placeholder="Enter your message" id="contactUsermessage"></textarea>
+                    </div>
+                </div>
+                <button class="btn bg-green text-white text-center helvetica-bold w-100 contact-submitbtn" id="contactSubmitbtn">
+                    Submit Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var emailExpr = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var mobileExpr = /^([0|\+[0-9]{1,5})?([6-9][0-9]{9})$/;
+     
+        $('body').on('click', '#contactSubmitbtn', function () {
+            var contactUsername = $('#contactUsername').val();
+            var contactUseremail = $('#contactUseremail').val();
+            var contactUsernumber = $('#contactUsernumber').val();
+            var contactUsersubject = $('#contactUsersubject').val();
+            var contactUsermessage = $('#contactUsermessage').val();
+            if (contactUsername == "" || contactUsername == null) {
+                messageDisplay("Please enter name", 1500, "error");
+                $("#contactUsername").focus();
+                return false;
+            }
+            if (contactUseremail == "" || contactUseremail == null) {
+                messageDisplay("Please enter email", 1500, "error");
+                $("#contactUseremail").focus();
+                return false;
+            }
+            if (!emailExpr.test(contactUseremail)) {
+                messageDisplay("Please enter valid email", 1500, "error");
+                $("#contactUseremail").focus();
+                return false;
+            }
+            if (contactUsernumber == "" || contactUsernumber == null) {
+                messageDisplay("Please enter number", 1500, "error");
+                $("#contactUsernumber").focus();
+                return false;
+            }
+            
+            if (!mobileExpr.test(contactUsernumber)) {
+                messageDisplay("Please enter valid number", 1500, "error");
+                $("#contactUsernumber").focus();
+                return false;
+            }
+            if (contactUsersubject == "" || contactUsersubject == null) {
+                messageDisplay("Please enter subject", 1500, "error");
+                $("#contactUsersubject").focus();
+                return false;
+            }
+            if (contactUsermessage == "" || contactUsermessage == null) {
+                messageDisplay("Please enter message", 1500, "error");
+                $("#contactUsermessage").focus();
+                return false;
+            }
+            
+        var Data = new FormData();
+        Data.append('contactUsername', contactUsername);
+        Data.append('contactUseremail', contactUseremail);
+        Data.append('contactUsernumber', contactUsernumber);
+        Data.append('contactUsersubject', contactUsersubject);
+        Data.append('contactUsermessage', contactUsermessage);
+       
+        $("#contactSubmitbtn").attr("disabled", "disabled");
+        $.ajax({
+            url: BASE_URL + '/contactus',
+            type: 'post',
+            data: Data,
+
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response.success) {
+                    messageDisplay(response.message, 2000, "success");
+                    $(".submit-btn").removeAttr("disabled");
+                    setTimeout(function () {
+                        window.location.href = BASE_URL + "/contactus";
+
+                    }, 2000)
+
+                } else {
+                    messageDisplay(response.message, 2000, "error");
+                    $(".submit-btn").removeAttr("disabled");
+                }
+            }
+        });
+        });
+    });
+</script>

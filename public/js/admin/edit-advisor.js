@@ -1,0 +1,83 @@
+$(document).ready(function () {
+    var acceptedImageExtensions = ["png", "jpg", "jpeg", "svg"];
+    $("body").on("click", "#editAdvisor", function () {
+
+        var editname = $.trim($("#editname").val());
+        var editdesignation = $.trim($("#editdesignation").val());
+        var editlinkedin_url = $.trim($("#editlinkedin_url").val());
+        var editId = $(this).attr("data-id");
+        var image_name = $("#file").val();
+        var files = $('#file')[0].files;
+
+        if (editname == "" || editname == null) {
+            messageDisplay("Please enter name", 1500, "error");
+            $("#editname").focus();
+            return false;
+        }
+        if (editdesignation == "" || editdesignation == null) {
+            messageDisplay("Please enter designation", 1500, "error");
+            $("#editdesignation").focus();
+            return false;
+        }
+        // if (editlinkedin_url == "" || editlinkedin_url == null) {
+        //     messageDisplay("Please enter linkedin url", 1500, "error");
+        //     $("#editlinkedin_url").focus();
+        //     return false;
+        // }
+        var Data = new FormData();
+        Data.append('editname', editname);
+        Data.append('editdesignation', editdesignation);
+        Data.append('editlinkedin_url', editlinkedin_url);
+        Data.append('editId', editId);
+
+        for (var i = 0; i < files.length; i++) {
+            Data.append('files', files[i]); // we can put more than 1 image file
+        }
+        $(".submit-btn").attr("disabled", "disabled");
+        $.ajax({
+            url: BASE_URL + '/admin/update-advisor',
+            type: 'post',
+            data: Data,
+
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response.success) {
+                    messageDisplay(response.message, 2000, "success");
+                    $(".submit-btn").removeAttr("disabled");
+                    setTimeout(function () {
+                        window.location.href = BASE_URL + "/admin/advisor";
+
+                    }, 2000)
+
+                } else {
+                    messageDisplay(response.message, 2000, "error");
+                    $(".submit-btn").removeAttr("disabled");
+                }
+            }
+        });
+    }).on("change", "#file", function (e) {
+        if ($(this).get(0).files.length !== 0) {
+            var files = e.target.files;
+            $.each(files, function (i, file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var FileType = files[i].type;
+                    var filename = files[i].name;
+                    var Extension = filename.split('.').pop();
+                    if ($.inArray(Extension, acceptedImageExtensions) === -1) {
+                        messageDisplay("Invalid File", 1500, "error");
+                        $("#file").val('');
+                        return false;
+                    }
+                    $("#feature_img").attr("src", e.target.result);
+                };
+                reader.readAsDataURL(file);
+            });
+            $("#feature_img").removeClass("d-none");
+        } else {
+            $("#feature_img").addClass("d-none");
+
+        }
+    })
+});

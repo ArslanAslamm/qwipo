@@ -1,0 +1,292 @@
+
+
+
+
+
+
+
+<div class="container-fluid breadcrumb-fluid py-5">
+    <div class="container my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0 bg-transparent">
+                <li class="breadcrumb-item"><a href="<?php echo $this->basePath(); ?>/">Home</a></li>
+                <li class="breadcrumb-item active">Careers</li>
+            </ol>
+        </nav>
+        <div class="d-md-flex align-items-center justify-content-between">
+            <div class="raleway-semibold color-000 careers-singlename mb-3 mb-md-0">
+                <?php echo $careerdata['title']; ?>
+            </div>
+            <div class="position-relative d-block d-md-inline-block text-right">
+                <button type="button" class="btn apply-singlebtn raleway-semibold px-3 stretched-link" data-toggle="modal" data-target="#myModal">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5 bg-white">
+    <div class="container">
+        <div class="mb-4">
+            <?php echo $careerdata['content']; ?>
+        </div>
+
+    </div>
+</div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Apply</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0 mt-3">
+                <div class="form-group">
+                    <label for="applicationName">Name</label>
+                    <div class="">
+                        <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationName" placeholder="Enter your name ">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationEmail">Email</label>
+                    <div class="">
+                        <input type="email" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationEmail" placeholder="Enter your email">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationMobile">Mobile</label>
+                    <div class="">
+                        <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationMobile" placeholder="Enter your mobile number">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationAddress">Current Address</label>
+                    <div class="">
+                        <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationAddress" placeholder="Enter your Postal Address">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationAge">Age</label>
+                    <div class="">
+                        <input type="number" min="0" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationAge" placeholder="Enter your Age in Years">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationGender">Gender</label>
+                    <div class="">
+                        <select required class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationGender">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationExperience">Total Years of Experience</label>
+                    <div class="">
+                        <input type="number" min="0" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationExperience" placeholder="Enter your Experience in Years">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationCtc">Current CTC</label>
+                    <div class="">
+                        <input type="number" step="0.001" min="0" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationCtc" placeholder="Enter your Current Salary">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationEctc">Expected CTC</label>
+                    <div class="">
+                        <input type="number" step="0.001" min="0" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationEctc" placeholder="Enter your Expected Salary">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="applicationNoticePeriod">Notice Period</label>
+                    <div class="">
+                        <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="applicationNoticePeriod" placeholder="Enter Notice Period from Last Job">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label>Upload Resume</label>
+                    <div class="form-control default-file p-1">
+                        <input type="file" id="file">
+                    </div>
+                </div>
+                
+            </div>
+            
+
+            <div class="modal-footer">
+                <button type="button" id="applySubmitBtn" class="btn apply-singlebtn rounded">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var acceptedImageExtensions = ["pdf", "docx"];
+        $("body").on("click", "#applySubmitBtn", function () {
+            
+            var applicationName = $.trim($("#applicationName").val());
+            var applicationEmail = $.trim($("#applicationEmail").val());
+            var applicationMobile = $.trim($("#applicationMobile").val());
+            var applicationAddress = $.trim($("#applicationAddress").val());
+            var applicationAge = $.trim($("#applicationAge").val());
+            var applicationGender = $.trim($("#applicationGender").val());
+            var applicationExperience = $.trim($("#applicationExperience").val());
+            var applicationCtc = $.trim($("#applicationCtc").val());
+            var applicationEctc = $.trim($("#applicationEctc").val());
+            var applicationNoticePeriod = $.trim($("#applicationNoticePeriod").val());
+
+            var image_name = $("#file").val();
+            var files = $('#file')[0].files;
+
+            if (applicationName == "" || applicationName == null) {
+                messageDisplay("Enter your name", 1500, "error");
+                $("#applicationName").focus();
+                return false;
+            }
+            if (applicationEmail == "" || applicationEmail == null) {
+                messageDisplay("Enter your email", 1500, "error");
+                $("#applicationEmail").focus();
+                return false;
+            }
+            if (applicationMobile == "" || applicationMobile == null) {
+                messageDisplay("Enter your mobile number", 1500, "error");
+                $("#applicationMobile").focus();
+                return false;
+            }
+            if (applicationAddress == "" || applicationAddress == null) {
+                messageDisplay("Enter your Current Address", 1500, "error");
+                $("#applicationAddress").focus();
+                return false;
+            }
+            if (applicationAge == "" || applicationAge == null) {
+                messageDisplay("Enter your Age", 1500, "error");
+                $("#applicationAge").focus();
+                return false;
+            }
+            if (applicationGender == "" || applicationGender == null) {
+                messageDisplay("Select your Gender", 1500, "error");
+                $("#applicationGender").focus();
+                return false;
+            }
+            if (applicationExperience == "" || applicationExperience == null) {
+                messageDisplay("Enter your Years of Experience", 1500, "error");
+                $("#applicationExperience").focus();
+                return false;
+            }
+            if (applicationCtc == "" || applicationCtc == null) {
+                messageDisplay("Enter your Current Salary (CTC)", 1500, "error");
+                $("#applicationCtc").focus();
+                return false;
+            }
+            if (applicationEctc == "" || applicationEctc == null) {
+                messageDisplay("Enter your Expected Salary (ECTC)", 1500, "error");
+                $("#applicationEctc").focus();
+                return false;
+            }
+            if (applicationNoticePeriod == "" || applicationNoticePeriod == null) {
+                messageDisplay("Enter your Notice Period", 1500, "error");
+                $("#applicationNoticePeriod").focus();
+                return false;
+            }
+            if (image_name == "" || image_name == null) {
+                messageDisplay("Please upload Pdf or Doc", 1500, "error");
+                $("#image_name").focus();
+                return false;
+            }
+
+            var Data = new FormData();
+            Data.append('applicationName', applicationName);
+            Data.append('applicationEmail', applicationEmail);
+            Data.append('applicationMobile', applicationMobile);
+            Data.append('applicationAddress', applicationAddress);
+            Data.append('applicationAge', applicationAge);
+            Data.append('applicationGender', applicationGender);
+            Data.append('applicationExperience', applicationExperience);
+            Data.append('applicationCtc', applicationCtc);
+            Data.append('applicationEctc', applicationEctc);
+            Data.append('applicationNoticePeriod', applicationNoticePeriod);
+
+
+            for (var i = 0; i < files.length; i++) {
+                Data.append('files', files[i]); // we can put more than 1 image file
+            }
+            $("#applySubmitBtn").attr("disabled", "disabled");
+            $.ajax({
+                url: BASE_URL + '/apply-career',
+                type: 'post',
+                data: Data,
+
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.success) {
+                        messageDisplay(response.message, 2000, "success");
+                        $("#applySubmitBtn").removeAttr("disabled");
+                        setTimeout(function () {
+                            window.location.reload();
+
+                        }, 2000)
+
+                    } else {
+                        messageDisplay(response.message, 2000, "error");
+                        $("#applySubmitBtn").removeAttr("disabled");
+                    }
+                }
+            });
+        }).on("change", "#file", function (e) {
+            if ($(this).get(0).files.length !== 0) {
+                var files = e.target.files;
+                $.each(files, function (i, file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var FileType = files[i].type;
+                        var filename = files[i].name;
+                        var Extension = filename.split('.').pop();
+                        if ($.inArray(Extension, acceptedImageExtensions) === -1) {
+                            messageDisplay("Invalid File", 1500, "error");
+                            $("#file").val('');
+                            return false;
+                        }
+                        $("#feature_img").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                });
+                $("#feature_img").removeClass("d-none");
+            } else {
+                $("#feature_img").addClass("d-none");
+
+            }
+        })
+    });
+
+</script>

@@ -1,0 +1,11 @@
+<?php
+
+if ($action == 'otp') {
+    echo $message = urlencode("Dear user, your otp to register for top marks is ".$otp.". -TOP MARKS");
+}
+else if ($action == 'forgot-password') {
+    echo $message = urlencode("Dear user, your otp to Change your password for top marks is ".$otp.". -TOP MARKS");
+}
+else if ($action == 'admin_password') {
+    echo $message = urlencode("Dear Admin, your password to login in to top marks is ".$password.". -TOP MARKS");
+}

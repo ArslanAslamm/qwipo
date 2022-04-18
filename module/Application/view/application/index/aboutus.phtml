@@ -1,0 +1,152 @@
+<style>
+    @media only screen and (min-width: 1200px) {
+        .aboutus-fluid::after {
+            background-image: url('<?php echo $this->basePath() . "/data/images/" . $aboutus[0]['image_path'] ?>');
+        }
+    }
+</style>
+ 
+
+
+
+
+
+<div class="container-fluid breadcrumb-fluid aboutus-fluid pt-5 overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-5 my-lg-5">
+                <div class="raleway-bold color-000 page-name mb-2">
+                    <?php echo $aboutus[0]['banner_title']; ?>
+                </div>
+                <div class="color-444">
+                    <?php echo $aboutus[0]['banner_sub_title']; ?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 d-xl-none">
+                <div class="text-right">
+                    <img src="<?php echo $this->basePath() . "/data/images/" . $aboutus[0]['image_path'] ?>" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 aboutus-details-fluid position-relative overflow-hidden">
+    <div class="container">
+        <div class="text-lg-center  aboutus-content mb-5">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $aboutus[0]['title']; ?>
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $aboutus[0]['sub_title']; ?>
+            </div>
+            <div class="my-3 color-000 font-14">
+                <p>
+                    <?php echo $aboutus[0]['content']; ?>
+                </p>                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="helvetica-bold color-000 ourteam-heading text-left mb-4 ml-5" >
+            <h4 style="font-size: 18px;">Meet the Team</h4>
+        </div>
+        <div class="helvetica-bold color-000 ourteam-heading text-left ml-5">
+            <h1 style="font-size: 2rem;">Executive</h1>
+        </div>
+        <div class="row team-row">
+            <?php
+            foreach($executive as $item){?>
+                <div class="col-12 col-md-6 col-lg-4 wow animate__animated animate__fadeInUp text-center team-members">
+                    <div class="px-3 px-lg-4 team-box text-center bg-white position-relative">
+                        <div class="team-image" style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center"></div>
+                        <div class="teammember-details">
+                            <div class="teammember-name raleway-semibold color-000 text-uppercase">
+                                <?php echo $item['name'];?>
+                            </div>
+                            <div class="teammember-role raleway-semibold color-333">
+                                <?php echo $item['designation'];?>
+                            </div>
+                            <div class="teammember-role raleway-semibold color-333">
+                                <a href="<?php echo $item['linkedin_url'];?>">
+                                    <img src="<?php echo $this->basePath(); ?>/img/linked_in.png" class="img-fluid" style="height:45px;">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            ?>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+      
+        <div class="helvetica-bold color-000 ourteam-heading text-left ml-5">
+            <h1 style="font-size: 2rem;">Our Advisors</h1>
+        </div>
+        <div class="row team-row">
+            <?php
+            foreach($advisor as $item){?>
+                <div class="col-12 col-md-6 col-lg-4 wow animate__animated animate__fadeInUp text-center team-members">
+                    <div class="px-3 px-lg-4 team-box text-center bg-white position-relative">
+                        <div class="team-image" style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center"></div>
+                        <div class="teammember-details">
+                            <div class="teammember-name raleway-semibold color-000 text-uppercase">
+                                <?php echo $item['name'];?>
+                            </div>
+                            <div class="teammember-role raleway-semibold color-333">
+                                <?php echo $item['designation'];?>
+                            </div>
+                            <div class="teammember-role raleway-semibold color-333">
+                                <a href="<?php echo $item['linkedin_url'];?>">
+                                    <img src="<?php echo $this->basePath(); ?>/img/linked_in.png" class="img-fluid" style="height:45px;">
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            ?>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="helvetica-bold color-000 ourteam-heading text-center">
+           <h1>Our Team</h1>
+        </div>
+        <div class="row team-row">
+            <?php
+            foreach($team as $item){?>
+                 <div class="col-12 col-md-6 col-lg-4 wow animate__animated animate__fadeInUp text-center team-members">
+                <div class="px-3 px-lg-4 team-box text-center bg-white position-relative">
+                    <div class="team-image" style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center"></div>
+                    <div class="teammember-details">
+                        <div class="teammember-name raleway-semibold color-000 text-uppercase">
+                            <?php echo $item['name'];?>
+                        </div>
+                        <div class="teammember-role raleway-semibold color-333">
+                            <?php echo $item['designation'];?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <?php }
+            ?>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    });
+</script>

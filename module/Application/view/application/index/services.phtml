@@ -1,0 +1,80 @@
+<style>
+    @media only screen and (min-width: 1200px) {
+        .services-fluid::after {
+            background-image: url('<?php echo $this->basePath() . "/data/images/" . $serviceBannerData[0]['image_path'] ?>');
+        }
+    }
+</style>
+
+
+
+
+
+<div class="container-fluid breadcrumb-fluid services-fluid pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 mb-5 my-lg-5">
+                <div class="raleway-bold color-000 page-name mb-2">
+                    <?php echo $serviceBannerData[0]['title'];?>
+                </div>
+                <div class="color-444">
+                    <?php echo $serviceBannerData[0]['sub_title'];?>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 d-lg-none">
+                <div class="text-right">                    
+                    <img src="<?php echo $this->basePath()."/data/images/".$serviceBannerData[0]['image_path']?>" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 services-list position-relative overflow-hidden">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $serviceHeading[0]['title'];?>
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $serviceHeading[0]['sub_title'];?>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+            foreach($services as $items){?>
+                <div class="col-12 col-lg-6 mb-5 wow animate__animated animate__fadeInUp">
+                <div class="services-box">
+                    <div class="text-center">
+                       <!-- <a href="<?php /*echo $this->basePath(); */?>/services-single?id=<?php /*echo $items['service_id']; */?>">-->
+                            <!--<img src="<?php /*echo $this->basePath()."/data/images/".$items['image_path']*/?>" class="img-fluid">-->
+                            <div class="service_images" style="background: url('<?php echo $this->basePath()."/data/images/".$items['image_path']?>');background-size: contain; background-repeat: no-repeat; background-position: center">
+                                
+                            </div>
+                       <!-- </a>-->
+                    </div>
+                    <div class="p-4">
+                        <div class="raleway-semibold color-000 services-name text-uppercase mb-2">
+                            <?php echo $items['title'];?>
+                        </div>
+                        <div class="color-000">
+                            <?php echo $items['content']; ?>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <?php }
+            
+            ?>
+            
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    });
+</script>

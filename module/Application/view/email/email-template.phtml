@@ -1,0 +1,487 @@
+<?php
+$year = date("Y");
+if ($action == 'registration') {
+    echo $content = '<html><head><title>Registration OTP</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Greetings ' . ucwords($data["name"]) . ',
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Your One Time Password (OTP) for Registering Qwipo is.
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">'.$data['otp'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}elseif ($action == 'CareerApplication') {
+   
+    echo $content = '<html><head><title>Career Application DETAILS</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Career Application,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">A Person applied for this career,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Name : '.$data['name'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Email : '.$data['email'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Mobile : '.$data['mobile'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Pdf : '.$data['pdf_path'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    
+    
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}elseif ($action == 'CareerApplicationAcknowledgement') {
+   
+    echo $content = '<html><head><title>Career Application Acknowledgement</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Career Application,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Here are your details for Career Application,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Name : '.$data['name'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Email : '.$data['email'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Mobile : '.$data['mobile'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Pdf : '.$data['pdf_path'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    
+    
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}elseif ($action == 'contactus_details') {
+ 
+    echo $content = '<html><head><title>CONTACT US DETAILS</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Contact Query,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">A new Person contacted you,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Name : '.$data['name'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Email : '.$data['email'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Mobile : '.$data['mobile'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Subject : '.$data['subject'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">Message : '.$data['message'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}elseif ($action == 'forgot-Password') {
+    echo $content = '<html><head><title>Forgot Password OTP</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Greetings ' . ucwords($data["name"]) . ',
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Your One Time Password (OTP) for Qwipo is.
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">'.$data['otp'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}elseif ($action == 'admin_password') {
+    echo $content = '<html><head><title>ADMIN PASSWORD</title></head>
+<body style="background:#ccc;">
+<table style="width:90%; font-family:verdna; font-size:14px;border:solid 1px #dadada;background:#fff; margin:10px auto;">
+    <tr>
+        <td style="height:78px; width:2%;"></td>
+        <td style="height:78px; width:96%;"><a href="'.$baseUrl.'"><img src="'.$baseUrl.'/img/logo.png" style="width:200px;border:none; display: block;margin: 0 auto"></a></td>
+        <td style="height:78px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Greetings Admin,
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;"></td>
+        <td style="height:8px; width:96%;"></td>
+        <td style="height:8px; width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">Your Password for login in to Qwipo as a admin is.
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">'.$data['password'].'</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>       
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;">-Qwipo
+        </td>
+        <td style="width:2%;"></td>
+    </tr>
+    <tr>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+        <td style="height:8px; width:96%;">&nbsp;</td>
+        <td style="height:8px; width:2%;">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width:2%;"></td>
+        <td style="width:96%;border-top:solid 1px #dadada;"><table>
+                <tr>
+                    <td style="width:90%; font-size:14px;">&copy;  ' . $year . ' All rights reserved. Qwipo &reg;</td>
+                    <td style="width:10%;"><table style="width:100%;">
+                        </table>
+                    </td>
+                    <td style="width:2%;"></td>
+                </tr>
+            </table>
+</body>
+
+</html>';
+}

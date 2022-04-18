@@ -1,0 +1,62 @@
+<script src="<?php echo $this->basePath(); ?>/js/admin/delete-blog.js"></script>
+
+<div class="d-md-flex justify-content-between align-items-center mb-3">
+    <div >
+     Blogs 
+    </div> 
+    <div>
+         <a href="<?php echo $this->basePath() ?>/admin/add-blog"><button class="btn btn-warning add-btn text-dark px-3 px-lg-4">Add Blog</button></a>
+        
+    </div>
+</div>
+<div id="page-wrapper">
+    <div class="">
+        <!-- Page Heading -->
+        <div class="table-responsive">
+
+            <table id ="Table" class="table  table-hover border-radius-10">
+                <thead>
+                    <tr>
+                        <th style="width:40px;">S No</th>
+                        <th>Title</th>
+                         <th>Created Date</th> 
+                         <th>Content</th> 
+                        <th>Image</th>                           
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $counter = 0;
+                    foreach ($blog as $item) {
+                        $counter++ ?>
+                        <tr>
+                            <td><?php echo $counter; ?></td> 
+                            <td class="space-nowrap"><?php echo $item['title']; ?></td>
+                            <td class="space-nowrap"><?php echo $item['date']; ?></td>
+                             <td class="space-nowrap"><?php echo substr($item['content'], 0, 200)."..."; ?></td>
+                            <td>
+                                <div class="rounded p-0" style="background: url('<?php echo $this->basePath()."/data/images/".$item['image_path']?>') no-repeat center / cover;height: 60px;width: 60px"></div>
+                            </td> 
+                            <td class="">
+                                <div class="d-flex">
+                                <span class="add-edit-button mr-2">
+                                    <a href="<?php echo $this->basePath() ?>/admin/edit-blog?id=<?php echo $item['blog_id']; ?>">                                     
+                                      <img src="<?php echo $this->basePath()?>/img/edit.png" alt="" style="height:30px">
+                                    </a>
+                                </span>
+                                <span id="deleteBlog" class="" data-id="<?php echo $item['blog_id']; ?>" style="cursor:pointer">
+                                    <img src="<?php echo $this->basePath()?>/img/delete.png" width="15" alt="" style="height:30px;width:30px">
+                                </span>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>

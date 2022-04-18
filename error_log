@@ -1,0 +1,1 @@
+[26-Aug-2020 08:40:32 UTC] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in phar:///home/tvishasystems/public_html/audience/all-demos/qwipo_dev/composer.phar/vendor/symfony/console/Formatter/OutputFormatter.php on line 152

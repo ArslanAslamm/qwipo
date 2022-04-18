@@ -1,0 +1,355 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <?= $this->headTitle($activeTitle)->setSeparator('')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('description', $activeDesc)
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        -->
+
+        <!-- Le styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.png'))
+                ->prependStylesheet($this->basePath('css/style.css'))
+                ->prependStylesheet($this->basePath('css/owl.theme.default.min.css'))
+                ->prependStylesheet($this->basePath('css/owl.carousel.min.css'))
+                ->prependStylesheet($this->basePath('css/hover.min.css'))
+                ->prependStylesheet($this->basePath('css/jquery.mCustomScrollbar.min.css'))
+                ->prependStylesheet($this->basePath('css/animate.min.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+                ->prependStylesheet($this->basePath('css/fontawesome-all.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath('js/global.js'))
+                ->prependFile($this->basePath('js/jquery.mCustomScrollbar.min.js'))
+                ->prependFile($this->basePath('js/owl.carousel.min.js'))
+                ->prependFile($this->basePath('js/wow.min.js'))
+                ->prependFile($this->basePath('js/bootstrap.min.js'))
+                ->prependFile($this->basePath('js/popper.min.js'))
+                ->prependFile($this->basePath('js/jquery.min.js'))
+                ->prependFile($this->basePath('js/fontawesome.min.js'))
+                ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath('js/html5shiv.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',));
+        ?>
+        <script>
+            var BASE_URL = "<?php echo $this->basePath(); ?>";
+        </script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-353G9JTZDQ"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-353G9JTZDQ');
+        </script>      
+
+    </head>
+    <body class="d-flex flex-column">
+        <div class="container-fluid navbar-fluid">
+            <nav class="navbar navbar-expand-xl py-3">
+                <a class="navbar-brand" href="<?php echo $this->basePath(); ?>/">
+                    <img src="<?php echo $this->basePath(); ?>/img/logo.png" class="img-fluid" alt="Qwipo Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+                        <span class="c-hamburger c-hamburger--htx"><span>Toggle menu</span></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-xl-end position-relative" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mt-2 mt-lg-0 align-items-xl-center w-100">
+                        <li class="nav-item ml-xl-auto <?php echo (isset($activeLink) && $activeLink == 1 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/">Home</a>
+                        </li>
+                        <li class="nav-item <?php echo (isset($activeLink) && $activeLink == 2 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/aboutus">
+                                About Us
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo (isset($activeLink) && $activeLink == 3 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/qwiposervices">
+                                Services
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo (isset($activeLink) && $activeLink == 4 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/blogs">
+                                Blogs
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo (isset($activeLink) && $activeLink == 5 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/gallery">
+                                Gallery
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo (isset($activeLink) && $activeLink == 6 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/careers">
+                                Careers
+                            </a>
+                        </li>
+                        <li class="nav-item mr-xl-auto <?php echo (isset($activeLink) && $activeLink == 7 ? 'active' : ""); ?>">
+                            <a class="nav-link" href="<?php echo $this->basePath(); ?>/contactus">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="tel:+91 9121222836" class="nav-link"> 
+                                <i class="fas fa-phone fa-rotate-90 fa-fw mr-1"></i> +91 <?php echo $contact[0]['mobile']; ?>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="main-content">
+            <?php echo $this->inlineScript() ?>
+            <?php echo $this->content; ?>
+        </div>
+        <div class="container-fluid footer-fluid position-relative py-5">
+            <div class="container overflow-hidden">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4">
+                    <div class="col mb-4 mb-lg-0 wow animate__animated animate__fadeInUp">
+                        <a href="<?php echo $this->basePath(); ?>/" class="mb-4 d-block">
+                            <img src="<?php echo $this->basePath(); ?>/img/footer-logo.png" class="img-fluid" alt="Qwipo Logo">
+                        </a>
+                        <img src="<?php echo $this->basePath(); ?>/img/certified.svg" class="img-fluid wow animate__animated animate__flipInY" style="width: 99px;" data-wow-delay="0.8s" alt="Certified Logo">
+                    </div>
+                    <div class="col mb-4 mb-lg-0 wow animate__animated animate__fadeInUp">
+                        <div class="footer-heading raleway-medium mb-2">
+                            Important Links
+                        </div>
+                        <ul class="list-unstyled footer-links">
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/aboutus">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/qwiposervices">
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/blogs">
+                                    Blogs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/careers">
+                                    Careers
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/contactus">
+                                    Contact Us
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col mb-4 mb-lg-0 wow animate__animated animate__fadeInUp">
+                        <div class="footer-heading raleway-medium mb-2">
+                            Other Links
+                        </div>
+                        <ul class="list-unstyled footer-links">
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/terms-conditions">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/privacy-policy">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/returns">
+                                    Returns
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->basePath(); ?>/faqs">
+                                    FAQs
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="footer-heading raleway-medium mb-2">
+                            Download
+                        </div>
+                        <ul class="list-unstyled footer-links">
+                            <li>
+                                <a href="https://play.google.com/store/apps/details?id=com.qwipo.b2b"><img src="<?php echo $this->basePath(); ?>/img/google-play.svg" alt="Google play store"></a>
+                            </li>
+
+                            <li>
+                                <a href="https://apps.apple.com/us/app/qwipo-b2b/id1444169919"><img src="<?php echo $this->basePath(); ?>/img/app-store.svg" alt="App store "></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col mb-4 mb-lg-0 wow animate__animated animate__fadeInUp">
+                        <div class="footer-heading futura-medium mb-2">
+                            Contact Us
+                        </div>
+                        <ul class="list-unstyled footer-links">
+                            <li>
+                                <?php echo $contact[0]['address']; ?>
+                            </li>
+                            <li>
+                                <a href="tel:+91 9121222836" class="">
+                                    <i class="fas fa-phone fa-rotate-90 fa-fw mr-1"></i> +<?php echo $contact[0]['mobile']; ?>
+                                </a>
+                            </li>
+                            <!-- adding rel="noopener" and adding text as 9121222136 -->
+                             <li>
+                                <a href="https://api.whatsapp.com/send?phone=+917207824659&text=Hello,%20Write%20to%20us.." target="_blank"  rel="noopener" class="social-links">
+                                    <i class="fab fa-whatsapp fa-fw mr-1"></i> +<?php echo $contact[0]['number']; ?>
+                                </a>
+                            </li>
+                          
+                            <li>
+                                <a href="mailto:info@qwipo.com">
+                                    <i class="fas fa-envelope fa-fw mr-1"></i> <?php echo $contact[0]['email']; ?>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="row">
+                            <ul class="social-icons-ql">
+                                <li style="height: 40px; width: 40px; margin: 10px 5px;"><a href="https://www.facebook.com/digitalqwipo"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/qwipo_official/?hl=en"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href=" https://www.linkedin.com/company/qwipob2b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://twitter.com/DigitalQwipo "><i class="fa fa-twitter"></i></a></li>
+                                <li><a href=" https://in.pinterest.com/Qwipo/_created/"><i class="fa fa-pinterest"></i></a></li>                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-top">
+            <div class="d-flex align-items-center justify-content-center">
+                <i class="fas fa-long-arrow-alt-up"></i>
+            </div>
+        </div>
+        <div class="feedback-section raleway-medium" id="wTdOl5MnWz"><span></span></div>
+        <script>
+            $(document).ready(function () {
+                new WOW().init();
+                $("body").on("keydown", "input[type='number']", function (e) {
+                    if (e.which == 38 || e.which == 69 || e.which == 40) {
+                        e.preventDefault();
+                    }
+                }).on("click", ".navbar-toggler", function () {
+                    $('.c-hamburger').toggleClass('is-active');
+                });
+                $(window).on('scroll', function () {
+                    if ($(this).scrollTop() > 600) {
+                        $('.navbar-fluid').addClass('nav-fixed');
+                        $('.main-content').css('padding-top', '90px');
+                    } else {
+                        $('.navbar-fluid').removeClass('nav-fixed');
+                        $('.main-content').css('padding-top', '');
+                    }
+                });
+                $(window).on('scroll', function () {
+                    if ($(this).scrollTop() > 300) {
+                        $('.navbar-fluid').addClass('translate-top');
+                    } else {
+                        $('.navbar-fluid').removeClass('translate-top');
+                    }
+                });
+                $(window).on('scroll', function () {
+                    if ($(this).scrollTop() > 600) {
+                        $('.scroll-top').fadeIn(600);
+                    } else {
+                        $('.scroll-top').fadeOut(600);
+                    }
+                });
+                $('.scroll-top').on("click", function () {
+                    $("html,body").animate({scrollTop: 0}, 500);
+                    return false;
+                });
+            });
+        </script>
+        <style>
+
+            /* CSS Document */
+
+            .social-icons-ql li{
+                list-style:none;
+                float:left;
+                width:40px;
+                height:40px;
+                line-height:45px;
+                background:#000;
+                text-align:center;
+                margin:10px 5px;
+            }
+            .social-icons-ql{
+                padding-left: 0px;
+            }
+            .social-icons-ql li:nth-child(1){
+                width:50px;
+                height:50px;
+                line-height:57px;	   
+                margin:5px 5px;
+                background:#34558E;
+            }
+
+            .social-icons-ql li:nth-child(1) i{
+                font-size:25px;
+
+            }
+/*            .social-icons-ql li:nth-child(2) {
+                background:#25B8E6;#0198DE;
+            }*/
+
+            .social-icons-ql li:nth-child(3) {
+                background:rgba(0, 122, 181, 1);
+            }
+            .social-icons-ql li:nth-child(4) {
+                background:#DC4A38;
+            }
+            .social-icons-ql li:nth-child(5) {
+                background:#CC2028;
+            }
+
+            .social-icons-ql li:nth-child(6) {
+                background:#E05929;
+            }
+            .social-icons-ql li:nth-child(7) {
+                background:#EB4924;
+            }
+
+
+
+            .social-icons-ql li i{
+                color:#fff;
+                font-size:20px;
+            }
+        </style>
+        <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "5db3d3291184d4c516f2382bd6e5b6b521e2f05510aacd1dd986419c990967e8", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.in/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+    </body>
+</html>

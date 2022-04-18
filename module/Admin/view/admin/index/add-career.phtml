@@ -1,0 +1,60 @@
+
+<script src="<?php echo $this->basePath(); ?>/js/admin/add-career.js"></script>
+<script src="<?php echo $this->basePath(); ?>/vendor/tinymce/tinymce.min.js"></script>
+
+<style>   
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
+<div class="admin">
+    <div class="mb-3 pagesection-name text-dark admin-heading">
+        <a href="<?php echo $this->basePath(); ?>/admin/career">
+            <img src="<?php echo $this->basePath(); ?>/img/left-arrow.jpg" class="mb-2 img-fluid" style="width: 25px;">
+        </a> Add Career</div>
+         
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="careerTitle">Title</label>
+                        <div class="">
+                            <input type="text"  class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="careerTitle" placeholder="Enter the title">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="careerContent">Description</label>
+                        <div class="">
+                            <textarea type="text" rows="10" class=" border rounded btn-outline-0 px-3 py-2 w-100" id="careerContent"></textarea>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="careerOrder">Order</label>
+                        <div class="">
+                            <input type="number" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="careerOrder" placeholder="Enter the Order">
+                        </div>
+                    </div>
+                </div>
+                </div>               
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <div class="text-right">
+                            <button type="submit" id="addCareer" class="btn btn-warning submit-btn text-dark px-3 px-lg-4">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

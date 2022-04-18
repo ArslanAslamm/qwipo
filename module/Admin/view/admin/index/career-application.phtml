@@ -1,0 +1,58 @@
+
+<div class="d-md-flex justify-content-between align-items-center mb-3">
+    <div class="text-capitalize text-dark admin-heading mb-3 mb-md-0">
+        Career Application details
+    </div> 
+
+</div>
+<div id="page-wrapper">
+    <div class="">
+        <!-- Page Heading -->
+        <div class="table-responsive">
+
+            <table id ="Table" class="table table-hover border-radius-10">
+                <thead>
+                    <tr>
+                        <th>S No</th>
+                        <th>Name</th>
+                        <th>Email</th>                          
+                        <th>Mobile</th>
+                        <th>File Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $counter = 0;
+                    foreach ($careerApplication as $item) {
+                        $counter++
+                        ?>
+                        <tr>
+                            <td><?php echo $counter; ?></td> 
+                            <td class="space-nowrap"><?php echo $item['name']; ?></td>
+                            <td class="space-nowrap"><?php echo $item['email']; ?></td>
+                            <td class="space-nowrap"><?php echo $item['mobile']; ?></td>
+                            <td class="space-nowrap">
+                                <a href="<?php echo $this->basePath() ?><?php echo $item['pdf_path']?>" download>
+                                    <img src="<?php echo $this->basePath(); ?>/img/download_img.png" style="height:30px;width:40px;cursor:pointers;margin-left:35px;">
+                                </a>
+                            </td>
+                        <?php }
+                        ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<script>
+    $('#Table').dataTable({
+        "ordering": false,
+        "language": {
+            "paginate": {
+                "previous": "<",
+                "next": ">"
+            }
+        }
+    });
+</script>

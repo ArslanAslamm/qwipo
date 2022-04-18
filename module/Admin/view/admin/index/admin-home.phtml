@@ -1,0 +1,66 @@
+<script src="<?php echo $this->basePath(); ?>/js/admin/delete-home-banner.js"></script>
+<style>
+    #delete_home_banner{
+        cursor:pointer;
+    }
+</style>
+<div class="d-md-flex justify-content-between align-items-center mb-3">
+    <div class="text-capitalize text-dark admin-heading mb-3 mb-md-0">
+        Add Banner
+    </div> 
+    <div>
+        <a href="<?php echo $this->basePath() ?>/admin/add-home-banner"><button class="btn btn-warning add-btn text-dark px-3 px-lg-4">Add Banner</button></a>
+
+    </div>
+</div>
+<div id="page-wrapper">
+    <div class="">
+        <!-- Page Heading -->
+        <div class="table-responsive">
+
+            <table id ="Table" class="table  table-hover border-radius-10">
+                <thead>
+                    <tr>
+                        <th style="width:40px;">S No</th>
+                        <th>Title</th>
+                        <th>Sub Title</th>                          
+                        <th>Image</th>                           
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $counter = 0;
+                    foreach ($homeBanner as $item) {
+                        $counter++
+                        ?>
+                        <tr>
+                            <td><?php echo $counter; ?></td> 
+                            <td class=""><?php echo $item['title']; ?></td>
+                            <td class="space-nowrap"><?php echo $item['sub_title']; ?></td>
+
+                            <td>
+                                <div class="rounded p-0" style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center / cover;height: 60px;width: 60px"></div>
+                            </td> 
+                            <td class="">
+                                <div class="d-flex">
+                                    <span class="add-edit-button mr-2">
+                                        <a href="<?php echo $this->basePath() ?>/admin/edit-home-banner?id=<?php echo $item['id']; ?>">
+                                            <img src="<?php echo $this->basePath() ?>/img/edit.png" alt="" style="height:30px">
+                                        </a>
+                                    </span>
+                                    <span id="delete_home_banner" class="" data-id="<?php echo $item['id']; ?>">
+                                        <img src="<?php echo $this->basePath() ?>/img/delete.png" width="15" alt="" style="height:30px;width:30px;">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+<?php }
+?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>

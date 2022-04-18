@@ -1,0 +1,58 @@
+<script src="<?php echo $this->basePath(); ?>/js/admin/delete-gallery.js"></script>
+
+<div class="d-md-flex justify-content-between align-items-center mb-3">
+    <div class="text-capitalize text-dark admin-heading mb-3 mb-md-0">
+       Gallery
+    </div> 
+    <div>
+         <a href="<?php echo $this->basePath() ?>/admin/add-gallery"><button class="btn btn-warning add-btn text-dark px-3 px-lg-4">Add Gallery</button></a>
+        
+    </div>
+</div>
+<div id="page-wrapper">
+    <div class="">
+        <!-- Page Heading -->
+        <div class="table-responsive">
+
+            <table id ="Table" class="table  table-hover border-radius-10">
+                <thead>
+                    <tr>
+                        <th>S.No</th>                       
+                        <th>Gallery</th> 
+                        <th>Order</th>                           
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $counter = 0;
+                    foreach ($galleryData as $item) {
+                        $counter++ ?>
+                        <tr>
+                            <td><?php echo $counter; ?></td> 
+                           <td>
+                                <div class="rounded p-0" style="background: url('<?php echo $this->basePath()."/data/images/".$item['image_path']?>') no-repeat center / cover;height: 60px;width: 60px"></div>
+                            </td> 
+                            <td><?php echo $item['order']; ?></td> 
+                            <td class="">
+                                <div class="d-flex">
+                                <span class="add-edit-button mr-2">
+                                    <a href="<?php echo $this->basePath() ?>/admin/edit-gallery?id=<?php echo $item['gallery_id']; ?>">                                     
+                                      <img src="<?php echo $this->basePath()?>/img/edit.png" alt="" style="height:30px">
+                                    </a>
+                                </span>
+                                <span id="deleteGallery" class="" data-id="<?php echo $item['gallery_id']; ?>" style="cursor:pointer">
+                                    <img src="<?php echo $this->basePath()?>/img/delete.png" width="15" alt="" style="height:30px;width:30px">
+                                </span>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>

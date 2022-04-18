@@ -1,0 +1,344 @@
+<div class="container-fluid p-0 banner-fluid bg-f7f7f7">
+    <div class="position-relative h-100">
+        <div class="owl-carousel owl-theme" id="bannerCarousel">
+             <?php
+            $c=0;
+            foreach($homeBanner as $item){?>
+                <div class="row">
+                <div class="col-12 col-md-4 col-lg-6">
+                    <div class="banner-detailbox wow animate__animated animate__fadeInLeft">
+                        <div class="banner-text raleway-bold color-000 mb-3">
+                          <h1> <?php echo $item['title'];?> </h1>
+                        </div>
+                        <div class="color-333 railway-medium">
+                             <?php echo $item['sub_title'];?>
+                        </div>
+                        <div>
+                            <a href="<?php echo $this->basePath(); ?>/aboutus" class="btn text-white bg-000 raleway-semibold mt-4 knowmore-btn">
+                                Know More...
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-6 offset-md-4 offset-lg-0" style="display: flex;    align-items: flex-end;     justify-content: flex-end;">
+                    <!--<div class="banner_img" style="background: url('<?php /*echo $this->basePath() . "/data/images/" . $item['image_path'] */?>') no-repeat">
+                    </div>-->
+
+                   <div class="wow animate__animated animate__fadeInRight">
+                       <img src="<?php echo $this->basePath()."/data/images/".$item['image_path']?>" class="img-fluid w-auto mx-auto">
+                   </div>
+                </div>
+            </div>
+           <?php $c++;
+           }
+            ?>
+            
+            
+        </div>
+        <div class="container owlcount-container">
+            <div class="owl-carousel--count jost-medium" id="owlCount"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 aboutus-details-fluid position-relative overflow-hidden p-0">
+    <div class="container">
+        <div class="text-center aboutus-content">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $aboutus[0]['title'];?>
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $aboutus[0]['sub_title'];?>
+            </div>
+            <div class="my-3 color-000 font-14">
+                <p>
+                    <?php echo substr($aboutus[0]['content'], 0, 500)."..."; ?>
+                    
+                </p>
+                
+            </div>
+            <a href="<?php echo $this->basePath(); ?>/aboutus" class="btn text-white bg-green raleway-semibold mt-4 knowmore-btn">
+                Know More...
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 position-relative overflow-hidden bg-f7f7f7">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $howItWorks[0]['title'];?>
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $howItWorks[0]['sub_title'];?>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <!-- <img src="<?php echo $this->basePath();?>/img/animation.gif" class="how-it-worksimg img-fluid"> -->
+        <video width="100%" autoplay loop muted>
+            <source src="<?php echo $this->basePath();?>/img/animationwithoutfarmers.mp4" type="video/mp4">
+        </video>
+        <!-- <img src="<?php echo $this->basePath()."/data/images/".$howItWorks[0]['image_path']?>" class="how-it-worksimg img-fluid"> -->
+
+    </div>
+</div>
+
+<div class="container-fluid features-fluid py-5 position-relative overflow-hidden">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $featuresHeading[0]['title'];?> 
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $featuresHeading[0]['sub_title'];?>
+            </div>
+        </div>
+        <div class="row mx-n2">
+            <?php foreach($features as $items){?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 wow animate__animated animate__fadeIn">
+                <div class="feature-box p-4 p-lg-5">
+                    <div class="mb-3 text-center feature-imgbox">
+                        <img src="<?php echo $this->basePath()."/data/images/".$items['image_path']?>" class="img-fluid">
+                    </div>
+                    <div class="">
+                        <div class="raleway-semibold color-000 text-uppercase mb-2">
+                            <?php echo $items['title'];?>
+                        </div>
+                        <div class="color-000 features-details">
+                            <?php echo $items['content'];?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php }             
+                
+                ?>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid statistics-fluid py-5 position-relative overflow-hidden bg-f7f7f7">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="raleway-semibold color-000 services-heading mb-2">
+                <?php echo $statisticHeading[0]['title'];?>
+            </div>
+            <div class="raleway-semibold color-666 services-caption">
+                <?php echo $statisticHeading[0]['sub_title'];?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 mb-lg-0 wow animate__animated animate__fadeInUp" id="stats_ani">
+                <div class="text-center">
+                    <div class="mb-4 postiton-ralative">
+                        <div>
+                            <img src="<?php echo $this->basePath();?>/img/statistics-1.png">
+                        </div>
+                        <div class="position-absolute count-div">
+
+
+                            <!--<div class="top">
+                                <div class="d-flex justify-content-center">
+                                    <h2 class="raleway-bold mb-0 count">80 </h2><span class="raleway-bold mb-0 percentage">%</span>
+                                </div>
+                                Small Retailers
+                            </div>-->
+
+
+
+                            <!--<div class="bottom">
+                                <div class="d-flex justify-content-center">
+                                    <h2 class="raleway-bold mb-0 count">20 </h2><span class="raleway-bold mb-0 percentage">%</span>
+                                </div>
+                                Organised
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="raleway-semibold color-000 text-uppercase font-16">
+                   50 prime geographical areas in and around Hyderabad & Andhra Pradesh. Expanding rapidly to more areas and other cities.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 mb-lg-0 wow animate__animated animate__fadeInUp">
+                <div class="text-center">
+                    <div class="mb-4 postiton-ralative">
+                        <div class="text-center">
+                            <div class="mb-4 postiton-ralative">
+                                <div>
+                                    <img src="<?php echo $this->basePath();?>/img/statistics-2.png">
+                                </div>
+                                <div class="position-absolute count-div2">
+                                    <div class="d-flex align-items-center">
+                                        <span class="raleway-semibold"></span> <h1 class="raleway-semibold mb-0 mt-3 ml-1"><span class="count">12</span> lakh+ <span class="font-42 d-block">kgs</span></h1>
+                              </div>
+
+                                    <h5 class="d-block"></h5>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="raleway-semibold color-000 text-uppercase font-16">
+                        supply of monthly food produce
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 mb-lg-0 wow animate__animated animate__fadeInUp">
+                <div class="text-center">
+                    <div class="mb-4 postiton-ralative">
+                        <div class="text-center">
+                            <div class="mb-4 postiton-ralative">
+                                <div>
+                                    <img src="<?php echo $this->basePath();?>/img/statistics-3.png">
+                                </div>
+                                <div class="position-absolute count-div3 w-50">
+
+
+                                    <h5 class="d-block w-100 text-center">Over <span class="count">7000 </span> +</h5>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="raleway-semibold color-000 text-uppercase font-16">
+                        Active business clients.
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+        <!--<div class="row">
+            <?php
+/*            foreach($statistic as $items){*/?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 mb-lg-0 wow animate__animated animate__fadeInUp">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <img src="<?php /*echo $this->basePath()."/data/images/".$items['image_path']*/?>" class="img-fluid">
+
+                    </div>
+                    <div class="raleway-semibold color-000 text-uppercase">
+                        <?php /*echo $items['title'];*/?>
+                    </div>
+                </div>
+            </div>
+           <?php /*}
+            */?>
+        </div>-->
+    </div>
+</div>
+
+<div class="container-fluid py-5 bg-white">
+    <div class="container">
+        <div class="raleway-bold color-000 blogs-name mb-4 text-center">
+            Blogs
+        </div>
+        <div class="row mx-n2">
+            
+            <?php
+            foreach($blogData as $item){?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 wow animate__animated animate__fadeInUp">
+                    <div class="blog-detailsbox">
+                        <div class="text-center blog-imgbox">
+                        <!--<img src="<?php /*echo $this->basePath() . "/data/images/" . $item['image_path'] */?>" class="img-fluid w-100">-->
+                            <div style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center / cover;">
+                            </div>
+                        </div>
+                    <div class="p-3">
+                        <div class="jost-medium color-green mb-2">
+                            <?php echo $item['date']; ?>
+                        </div>
+                        <div class="raleway-semibold color-000 blog-heading mb-2">
+                            <?php echo $item['title']; ?>
+                        </div>
+                        <div class="color-333 mb-3">
+                            <?php echo substr($item['content'], 0, 130)."..."; ?>
+                        </div>
+                        <a href="<?php echo $this->basePath(); ?>/blogs-single?id=<?php echo $item['blog_id']; ?>" class="stretched-link jost-medium color-green text-uppercase">
+                            Read More <i class="fas fa-long-arrow-alt-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+           <?php }
+            ?>
+
+
+        </div>
+        <div class="text-center w-100">
+            <a href="<?php echo $this->basePath(); ?>/blogs" class="btn text-white bg-000 raleway-semibold mt-4 knowmore-btn bg-green">
+                View More...
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*$(document).ready(function () {
+        $('#bannerCarousel').owlCarousel({
+            autoplay: true,
+            loop: true,
+            smartSpeed: 2000,
+            items: 1,
+            dots: true,
+            onInitialized: counter, //When the plugin has initialized.
+            onTranslated: counter //When the translation of the stage has finished.
+        });
+        function counter(event) {
+            var element = event.target;         // DOM element, in this example .owl-carousel
+            var items = event.item.count;     // Number of items
+            var item = event.item.index + 1;     // Position of the current item
+
+            // it loop is true then reset counter from 1
+            if (item > items) {
+                item = item - items
+            }
+            $('#owlCount').html(item + "/" + items)
+        }
+    });*/
+
+
+    $('#bannerCarousel').on('initialized.owl.carousel changed.owl.carousel', function(e) {
+        if (!e.namespace)  {
+            return;
+        }
+        var carousel = e.relatedTarget;
+        $('#owlCount').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
+    }).owlCarousel({
+        items: 1,
+        loop:true,
+        autoplay: true,
+        margin:0,
+        autoplayTimeout:8000,
+        nav:true,
+        autoplayHoverPause:true,
+    });
+
+    let statsFlag = false;
+
+    $(window).on("scroll", function(){
+        if(!statsFlag){
+            if($("html").scrollTop() + 350 >= $("#stats_ani").offset().top){
+                statsFlag = true;
+                $('.count').each(function () {
+                    $(this).prop('Counter',0).animate({
+                        Counter: $(this).text()
+                    }, {
+                        duration: 4000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(Math.ceil(now));
+                        }
+                    });
+                });
+            }
+        }
+    });
+</script>

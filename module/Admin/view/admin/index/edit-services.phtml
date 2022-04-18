@@ -1,0 +1,77 @@
+
+<script src="<?php echo $this->basePath(); ?>/js/admin/edit-services.js"></script>
+<script src="<?php echo $this->basePath(); ?>/vendor/tinymce/tinymce.min.js"></script>
+
+<style>   
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+<div class="admin">
+    <div class="mb-3 pagesection-name text-dark admin-heading">
+        <a href="<?php echo $this->basePath(); ?>/admin/service">
+            <img src="<?php echo $this->basePath(); ?>/img/left-arrow.jpg" class="mb-2 img-fluid" style="width: 25px;">
+        </a> Edit Service</div>
+
+</div>
+
+<div class="row m-0">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-9 bg-white p-4">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="editServiceTitle">Title</label>
+                    <div class="">
+                        <input type="text" value="<?php echo $serviceData['title']; ?>" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="editServiceTitle" placeholder="Enter the title">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="file">Image</label><span class="ml-3 recommended"></span>
+                    <div class="border rounded position-relative upload-box">
+                        <input type="file" id="file" class="overview_file">
+                        <div class="position-relative h-100 w-100 p-2 overflow-hidden">
+                            <div class="upload-imgbox">
+                                <img src="" class="img-fluid d-none mw-100 mh-100" id="feature_img" style="height:160px;width:100%">
+                            </div>
+                            <div class="d-flex flex-column align-items-center justify-content-center w-100 h-100">
+                                <img src="<?php echo $this->basePath(); ?>/img/upload.png" class="img-fluid" style="width: 50px; opacity: 0.5;">
+                                <div class="raleway-regular color-999">
+                                    Click to Upload Images
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group align-items-center text-center border">
+                    <div class="p-3">
+                        <img src="<?php echo $this->basePath() . "/data/images/" . $serviceData['image_path']; ?>" height="150px" width="150px;" class="img-fluid rounded w-50">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="editServiceContent">Description</label>
+                    <div class="">
+                        <textarea type="text" rows="10" class=" border rounded btn-outline-0 px-3 py-2 w-100" id="editServiceContent"><?php echo $serviceData['content']; ?></textarea>
+                    </div>
+                </div>                   
+            </div>
+        </div>               
+        <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0 m-0">
+            <div class="form-group">
+                <div class="text-right">
+                    <button type="submit" data-id="<?php echo $serviceData['service_id']; ?>" id="editServices" class="btn btn-warning submit-btn text-dark px-3 px-lg-4">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+

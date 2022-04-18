@@ -1,0 +1,251 @@
+Good evening sir today i worked on the following tasks
+1. I worked on the product module of adminand completed the following things
+   * Insertion
+   * Update
+   * Delete
+2. I converted the static product page to dynamic page
+3. I worked on the contact us page and made content dynamic.
+4. I worked on design part of login,forgotpassword,reset password pages.
+
+<script src="<?php echo $this->basePath(); ?>/js/admin/edit-product.js"></script>
+<script src="<?php echo $this->basePath(); ?>/vendor/tinymce/tinymce.min.js"></script>
+<style>
+    .admin-heading{
+        font-size: 25px;
+        font-weight:bold;        
+    }
+</style>
+<div class="admin">
+    
+     <div class="mb-3 pagesection-name text-warning admin-heading">
+        <a href="<?php echo $this->basePath(); ?>/product">
+            <img src="<?php echo $this->basePath(); ?>/images/arrow.png" class="mb-2 img-fluid" style="width: 40px;height:20px;">
+        </a> Edit Product
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="edit_product_title">Product Title</label>
+                        <div class="">
+                            <input type="text" value='<?php echo $product['product_title'];?>' class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="edit_product_title" placeholder="Enter the product title">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="edit_product_price">Product Price</label>
+                        <div class="">
+                            <input type="text" value='<?php echo $product['product_price'];?>' class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="edit_product_price" placeholder="Enter the product price">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="file">Image</label>
+                        <div class="border rounded position-relative upload-box">
+                            <input type="file" id="file" class="overview_file">
+                            <div class="d-flex align-items-center justify-content-center flex-column" style="height:180px;">
+                                <img src="" class="img-fluid position-absolute p-2 h-80 w-100 d-none" id="feature_img" style="height:140px;">
+                                <img src="<?php echo $this->basePath(); ?>/images/upload_image.png" class="mb-2 img-fluid" style="width: 50px;">
+                                <div class="poppins-regular color-999">
+                                    Click to Upload Images
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                 <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group align-items-center text-center border">
+
+                        <div class="p-3">
+                            <img src="<?php echo $this->basePath()."/data/images/". $product['product_image']; ?>" height="150px" width="150px;" class="img-fluid rounded w-50">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="edit_product_description">Description</label>
+                        <div class="">
+                            <textarea type="text" rows="10" class=" border rounded btn-outline-0 px-3 py-2 w-100" id="edit_product_description"></textarea>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <div class="text-right">
+                            <button type="submit" data-id="<?php echo $product['product_id'];?>" id="edit_product" class="btn btn-warning submit-btn text-white px-3 px-lg-4">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+$(document).ready(function () {
+      tinymce.init(
+    {
+    selector: '#edit_product_description',
+   plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools codesample',
+    'image code',
+    'placeholder'
+    ],
+    menubar: true,
+    statusbar: false,
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    image_title: true,
+    automatic_uploads: true,
+    /* paste_as_text: true,*/
+    paste_data_images: true,
+    file_picker_types: 'image',
+    file_picker_callback: function (cb, value, meta) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.onchange = function () {
+    var file = this.files[0];
+
+    var reader = new FileReader();
+    reader.onload = function () {
+    var id = 'blobid' + (new Date()).getTime();
+    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+    var base64 = reader.result.split(',')[1];
+    var blobInfo = blobCache.create(id, file, base64);
+    blobCache.add(blobInfo);
+    cb(blobInfo.blobUri(), {title: file.name});
+    };
+    reader.readAsDataURL(file);
+    };
+
+    input.click();
+    }
+}
+);
+    
+ var acceptedImageExtensions = ["png","jpg","jpeg","svg"];
+ 
+ $("body").on("click", "#edit_product", function () {         
+      
+        var edit_product_title = $.trim($("#edit_product_title").val()); 
+        var edit_product_price = $.trim($("#edit_product_price").val());
+       var description =$.trim(tinymce.get('edit_product_description').getContent());
+//        var image_name = $("#file").val();
+        var files = $('#file')[0].files;        
+        var productId = $(this).attr("data-id");
+       
+
+        if (edit_product_title == "" || edit_product_title == null) {
+            messageDisplay("Please enter product title",1500,"error");           
+            return false;
+        }
+         if (edit_product_price == "" || edit_product_price == null) {
+             messageDisplay("Please enter product price",1500,"error");         
+            return false;
+        }
+        if (description == "" || description == null) {
+             messageDisplay("Please enter description",1500,"error");         
+            return false;
+        }
+        
+            var Data = new FormData();         
+            Data.append('edit_product_title', edit_product_title);
+            Data.append('edit_product_price', edit_product_price);
+            Data.append('description', description);
+            Data.append('productId', productId);
+           
+            for(var i = 0;i<files.length;i++){
+                   Data.append('files', files[i]); // we can put more than 1 image file
+               }
+        $(".submit-btn").attr("disabled","disabled");  
+        $.ajax({
+                url: BASE_URL + '/update-product',
+                type: 'post',
+                data:Data,
+            
+                contentType: false,
+                processData: false,
+                success: function(response){
+            console.log(response);
+            if(response.success){
+                    messageDisplay(response.message,2000,"success");
+                     $(".submit-btn").removeAttr("disabled");
+                    setTimeout(function(){
+                        window.location.href = BASE_URL+"/product";
+                        
+                    },2000)
+                
+            }
+            else{
+                messageDisplay(response.message,2000,"error");
+                 $(".submit-btn").removeAttr("disabled");
+            }
+        }
+        });
+    }).on("change", "#file", function (e) {
+    if ($(this).get(0).files.length !== 0) {
+    var files = e.target.files;
+    $.each(files, function (i, file) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    var FileType = files[i].type;
+    var filename = files[i].name;
+    var Extension =filename.split('.').pop();
+
+    if ($.inArray(Extension, acceptedImageExtensions) === -1) {
+    messageDisplay("Invalid File",1500,"error");
+     $("#file").val('');
+    return false;
+    }    
+     $("#feature_img").attr("src",e.target.result); 
+    };
+    reader.readAsDataURL(file);
+    });
+     $("#feature_img").removeClass("d-none");
+    }
+     else{
+       $("#feature_img").addClass("d-none");
+
+    }
+    }).on("keyup","#blog_title", function () {
+        $("#blog_url").val(stringSlug($(this).val()));
+}).on("change","#file",function(){
+//    $("#feature_img").removeClass("d-none");
+    });
+});
+
+
+http://35.153.235.178/svn/express-vacation/branches/development/designing
+http://35.153.235.178/svn/express-vacation/branches/development/designing
+anna e svn checkout cheyadaniki access avava konni functionality code kavali
+157.48.192.167
+
+
+
+
+
+
+anna admin lo division add chesanu ok
+
+next product add chesedapudu division select chesukonu data insert chesa
+
+database lo two tables create chesa
+
+1. Division table 
+2. Product table
+ok anna
+\k show me we
+list lo division name degara adi display avali

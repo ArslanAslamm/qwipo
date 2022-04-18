@@ -1,0 +1,54 @@
+<div class="container-fluid mt-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-0 bg-transparent">
+                <li class="breadcrumb-item"><a href="<?php echo $this->basePath(); ?>/">Home</a></li>
+                <li class="breadcrumb-item active">Blogs</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container-fluid mb-5 bg-white">
+    <div class="container">
+        <div class="raleway-bold color-000 blogs-name mb-4">
+           <h1>Blogs</h1>
+        </div>
+        <div class="row mx-n2">
+            <?php foreach ($blogData as $item) {?>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 wow animate__animated animate__fadeInUp">
+                    <div class="blog-detailsbox">
+                        
+                        <div class="text-center blog-imgbox">
+                            <div style="background: url('<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>') no-repeat center / cover;">
+                            </div>
+                            <!--<img src="<?php echo $this->basePath() . "/data/images/" . $item['image_path'] ?>" class="img-fluid w-100">-->
+                        </div>
+                        <div class="p-3">
+                            <div class="jost-medium color-green mb-2">
+                                <?php echo $item['date']; ?>
+                            </div>
+                            <div class="raleway-semibold color-000 blog-heading mb-2">
+                                <?php echo $item['title']; ?>
+                            </div>
+                            <div class="color-333 mb-3">
+                                <?php echo substr(strip_tags($item['content']), 0, 130)."..."; ?>
+                            </div>
+                            <a href="<?php echo $this->basePath(); ?>/blogs/<?php echo $item['custom_url']; ?>" class="stretched-link jost-medium color-green text-uppercase">
+                                Read More <i class="fas fa-long-arrow-alt-right ml-2"></i>
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+            <?php }
+            ?>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    });
+</script>

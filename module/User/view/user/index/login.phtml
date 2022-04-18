@@ -1,0 +1,130 @@
+<style>.navbar-fluid, .breadcrumb-fluid,.footer-fluid {
+display:none;
+}
+</style>
+<link rel="stylesheet" href="<?php echo $this->basePath(); ?>/css/user/user.css">
+<script src="<?php echo $this->basePath(); ?>/js/user/login.js?v=1"></script>
+<div class="container">
+    <div class="text-center my-3 mb-lg-4">
+        <div class="d-inline-block bg-white">
+            <img src="<?php echo $this->basePath(); ?>/img/footer-logo.png" class="img-fluid" style="">
+        </div>
+    </div>
+    <div class="row login-container">
+        <div class="col-12 col-md-6 mx-auto">
+            <div class="account-details p-3 p-lg-4 mb-3">
+                <div class="text-capitalize text-center create-account mb-3 mb-lg-4">
+                    sign in to your account
+                </div>
+                <div class="row mx-0">
+                    <div class="col-12 mb-3">
+                        <div class="account-text">
+                            <label class="text-white text-capitalize">
+                                email ID
+                            </label>
+                            <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" placeholder="Email" id="email">
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="account-text">
+                            <label class="text-white text-capitalize">
+                                password
+                            </label>
+                            <input type="password" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" placeholder="password" id="password">
+                        </div>
+                    </div>
+                    <div class="col-12 sign-up text-lg-right mb-3">
+                        <a  href="<?php echo $this->basePath() ?>/forgot-password" class="signin-text text-success">Forgot Password?</a>
+                    </div>
+                    <div class="col-12 text-right">
+                        <button class="btn btn-warning text-uppercase text-center text-dark submit-form w-100" id="login-btn">
+                            submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>
+    $(document).ready(function(){
+
+    var loginPasswordElement= $("#password");
+
+    loginPasswordElement.on("keypress",function(e){
+        if(e.keyCode == 13 || e.which == 13){
+            login();
+        }
+    });
+
+    $("body").on("click","#login-btn",function(){
+        login();
+    });
+});
+function login(){
+
+    var emailElement= $("#email");
+    var email = emailElement.val();
+    var passwordElement= $("#password");
+    var password = passwordElement.val();
+
+    if(email === ""){
+        messageDisplay("please enter email",2000);
+        emailElement.focus();
+        return false;
+    }
+    if(password === ""){
+        messageDisplay("Enter your password",2000);
+        passwordElement.focus();
+        return false;
+    }
+    
+
+    $.post(BASE_URL+"/login",{
+        email: email,
+        password : password
+
+    },
+    
+  function(response){
+            console.log(response);
+            if(response.success){
+                    messageDisplay(response.message,2000,"success");
+                    
+                    setTimeout(function(){
+                        window.location.href = BASE_URL+"/about-us";
+                        
+                    },2000)
+                
+            }
+            else{
+                messageDisplay(response.message,2000,"error");
+
+            }
+        });
+
+}
+function parseJsonData(data) {
+    return $.parseJSON(JSON.stringify(data));
+}
+function messageDisplay(message, timeOut, type) {
+
+    if ($.trim(timeOut) == "") {
+        timeOut = 2500;
+    }
+    var element = $("#wTdOl5MnWz");
+    element.removeClass("error").removeClass("success").addClass(type);
+    $("div#wTdOl5MnWz span").html(message);
+    element.animate({
+        height: 70
+    }, 300).show();
+    setTimeout(function () {
+        element.animate({
+            height: 0
+        }, 300, function () {
+            element.hide();
+        });
+    }, timeOut);
+}
+
+    </script>-->

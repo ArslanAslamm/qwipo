@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script src="<?php echo $this->basePath(); ?>/js/admin/add-blog.js"></script>
+<script src="<?php echo $this->basePath(); ?>/vendor/tinymce/tinymce.min.js"></script>
+<div class="admin">
+    <div class="mb-3 pagesection-name admin-heading">
+        <a href="<?php echo $this->basePath(); ?>/admin/blog">
+            <img src="<?php echo $this->basePath(); ?>/img/left-arrow.jpg" class="mb-2 img-fluid" style="width: 25px;">
+        </a> Add Blog</div>
+    <div class="row m-0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-9 bg-white p-4">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="blogTitle">Blog Title</label>
+                        <div class="">
+                            <input type="text" class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="blogTitle" placeholder="Enter the title">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="blogUrl">Custom url</label>
+                        <div class="">
+                            <input type="text"  class="form-control border rounded btn-outline-0 px-3 py-2 w-100" id="blogUrl" placeholder="Enter the Url">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label>Blog date</label>
+                        <div class="datepicker-calendar position-relative">
+                            <input type="text"  class="form-control border rounded btn-outline-0 px-3 py-2 w-100" placeholder="Enter the date" id="datepicker">
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                <div class="form-group">
+                    <label for="file">Image</label><span class="ml-3 recommended">*Recommended resolution (1104 x 400) pixels</span>
+                    <div class="border rounded position-relative upload-box">
+                        <input type="file" id="file" class="overview_file">
+                        <div class="position-relative h-100 w-100 p-2 overflow-hidden">
+                            <div class="upload-imgbox">
+                                <img src="" class="img-fluid d-none mw-100 mh-100" id="feature_img" style="height:160px;width:100%">
+                            </div>
+                            <div class="d-flex flex-column align-items-center justify-content-center w-100 h-100">
+                                <img src="<?php echo $this->basePath(); ?>/img/upload.png" class="img-fluid" style="width: 50px; opacity: 0.5;">
+                                <div class="raleway-regular color-999">
+                                    Click to Upload Images
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+                 
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <label for="blogDescription">Description</label>
+                        <div class="">
+                            <textarea type="text" rows="10" class=" border rounded btn-outline-0 px-3 py-2 w-100" id="blogDescription"></textarea>
+                        </div>
+                    </div>
+                   
+                </div>
+                 
+                <div class="col-12 col-sm-12 col-md-12 mb-3 mb-md-0">
+                    <div class="form-group">
+                        <div class="text-right">
+                            <button type="submit"  id="addBlogs" class="btn btn-warning submit-btn text-white px-3 px-lg-4">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo $this->basePath(); ?>/js/admin/edit-blog.js"></script>
+<script>
+      $(document).ready(function () {
+        $('#datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            icons: {
+                time: 'fas fa-clock',
+                date: 'fas fa-calendar',
+                up: 'fas fa-angle-up',
+                down: 'fas fa-angle-down',
+                previous: 'fas fa-angle-left',
+                next: 'fas fa-angle-right',
+                today: 'glyphicon glyphicon-screenshot',
+                clear: 'fas fa-angle-trash',
+                close: 'fas fa-angle-remove'
+            }
+        });
+         $("body").on("click",".dropdown-item",function () {             
+           var days = $(this).text();                     
+           $("#category").text(days);         
+       });
+    });
+</script>
