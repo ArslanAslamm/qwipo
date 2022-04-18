@@ -1819,7 +1819,7 @@ class IndexController extends BaseController
 
                 $name = trim($request['name']);
                 $designation = trim($request['designation']);
-                $order = trim($request['order']);
+                $order = trim($request['position_order']);
                 $fileName = rand(0000, 9999) . $files['files']['name'];
                 $directoryPath = "/data/images/";
 
@@ -1853,7 +1853,7 @@ class IndexController extends BaseController
                     "name" => $name,
                     "designation" => $designation,
                     "image_path" => $fileName,
-                    "order" => $order,
+                    "position_order" => $order,
                 );
 
                 $save = $this->ourteamTable()->addOurTeam($data);
@@ -1924,7 +1924,7 @@ class IndexController extends BaseController
                 $data = array(
                     "name" => $editname,
                     "designation" => $editdesignation,
-                    "order" => $editorder,
+                    "position_order" => $editorder,
                 );
 
                 if ($finalPath) {

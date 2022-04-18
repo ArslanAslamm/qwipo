@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         var name = $.trim($("#name").val());
         var designation = $.trim($("#designation").val());
-        var order = $.trim($("#order").val());
+        var order = $.trim($("#position_order").val());
 
         var image_name = $("#file").val();
         var files = $('#file')[0].files;
@@ -21,7 +21,7 @@ $(document).ready(function () {
         }
         if (order == "" || order == null) {
             messageDisplay("Please enter order", 1500, "error");
-            $("#order").focus();
+            $("#position_order").focus();
             return false;
         }
         if (image_name == "" || image_name == null) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
         var Data = new FormData();
         Data.append('name', name);
         Data.append('designation', designation);
-        Data.append('order', order);
+        Data.append('position_order', order);
 
         for (var i = 0; i < files.length; i++) {
             Data.append('files', files[i]); // we can put more than 1 image file
