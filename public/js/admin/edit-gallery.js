@@ -4,16 +4,16 @@
  
  $("body").on("click", "#editGallery", function () {         
       
-         var order = $("#order").val();   
+         var order = $("#position_order").val();   
         var galleryId = $(this).attr("data-id");
         var order = $(this).attr("data-id");
         
             var Data = new FormData();         
             Data.append('galleryId', galleryId);
-            Data.append('order', order);
-            for(var i = 0;i<files.length;i++){
-                   Data.append('files', files[i]); // we can put more than 1 image file
-               }
+            Data.append('position_order', order);
+            // for(var i = 0;i<galleryId.length;i++){
+            //        Data.append('files', galleryId[i]); // we can put more than 1 image file
+            //    }
         $(".submit-btn").attr("disabled","disabled");  
         $.ajax({
                 url: BASE_URL + '/admin/update-gallery',

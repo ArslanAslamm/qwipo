@@ -1367,7 +1367,7 @@ class IndexController extends BaseController
         if ($this->getRequest()->isXmlHttpRequest()) {
             try {
                 $request = $this->getRequest()->getPost();
-                $order = trim($request['order']);
+                $order = trim($request['position_order']);
 
                 $files = $this->getRequest()->getFiles();
 
@@ -1396,7 +1396,7 @@ class IndexController extends BaseController
 
                 $data = array(
                     "image_path" => $fileName,
-                    "order" => $order,
+                    "position_order" => $order,
                 );
 
                 $save = $this->galleryTable()->addGallery($data);
@@ -1441,7 +1441,7 @@ class IndexController extends BaseController
                 $files = $this->getRequest()->getFiles();
 
                 $galleryId = trim($request['galleryId']);
-                $order = trim($request['order']);
+                $order = trim($request['position_order']);
 
                 $fileName = rand(0000, 9999) . $files['files']['name'];
                 $directoryPath = "/data/images/";
@@ -1455,7 +1455,7 @@ class IndexController extends BaseController
                 } else {
                     $finalPath = "";
                 }
-                $data['order'] = $order;
+                $data['position_order'] = $order;
                 if ($finalPath) {
                     $data['image_path'] = $fileName;
                 }
@@ -1506,7 +1506,6 @@ class IndexController extends BaseController
             return $this->redirect()->toUrl($this->getBaseUrl());
         }
         $careerData = $this->careerTable()->getCareer();
-        // print_r($careerData);exit;
         $this->layout()->setVariable('activeTab', 6);
         return new ViewModel(array('careerData' => $careerData));
     }

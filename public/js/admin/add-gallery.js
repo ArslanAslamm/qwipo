@@ -3,7 +3,7 @@ $(document).ready(function () {
  $("body").on("click", "#addGallery", function () {        
 
         var image_name = $("#file").val();
-        var order = $("#order").val();
+        var order = $("#position_order").val();
         var files = $('#file')[0].files; 
 
         if (order == "" || order == null) {
@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
           
             var Data = new FormData();         
-            Data.append('order', order);
+            Data.append('position_order', order);
             for(var i = 0;i<files.length;i++){
                    Data.append('files', files[i]); // we can put more than 1 image file
                }
